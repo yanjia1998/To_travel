@@ -1,4 +1,4 @@
-package com.qf.commen;
+package com.qf.common;
 
 import lombok.Data;
 

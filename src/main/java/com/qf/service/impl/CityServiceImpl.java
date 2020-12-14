@@ -1,6 +1,6 @@
 package com.qf.service.impl;
 
-import com.qf.commen.BaseResponse;
+import com.qf.common.BaseResponse;
 import com.qf.dao.CityBaseResponse;
 import com.qf.dao.CityMapper;
 import com.qf.pojo.City;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by Wang on 2020/12/14 14:12

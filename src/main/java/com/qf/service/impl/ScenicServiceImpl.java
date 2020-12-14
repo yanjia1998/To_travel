@@ -1,6 +1,6 @@
 package com.qf.service.impl;
 
-import com.qf.commen.BaseResponse;
+import com.qf.common.BaseResponse;
 import com.qf.dao.ScenicBaseResponse;
 import com.qf.pojo.Scenic;
 import com.qf.service.ScenicService;
