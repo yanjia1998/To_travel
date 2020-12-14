@@ -11,14 +11,14 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Created by 54110 on 2020/11/30.
+ * @author Wang
+ * @date 2020/12/2 20:22
  */
 //标注当前类是配置类
 @Configuration
 //标注当前类是swagge2的配置类，开始swagger2
 @EnableSwagger2
 public class Swagger2Config {
-
     //交给spring的ioc
     @Bean
     public Docket api() {
