@@ -13,6 +13,5 @@ public class UserReq {
     private  String sex;
     private String password;
     private  String email;
-
     private String code;
 }

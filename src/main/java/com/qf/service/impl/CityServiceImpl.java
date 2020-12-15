@@ -7,6 +7,8 @@ import com.qf.pojo.City;
 import com.qf.pojo.Scenic;
 import com.qf.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,12 +26,16 @@ public class CityServiceImpl implements CityService {
     CityMapper cityMapper;
 
     @Override
-    public BaseResp findAll() {
+    public BaseResp findAll(Integer page,Integer size) {
+        PageRequest pageRequest = new PageRequest(page - 1, size);
+        Page<City> all = cityRepository.findAll(pageRequest);
+
         BaseResp BaseResp = new BaseResp();
-        List<City> all = cityRepository.findAll();
+       // List<City> all = cityRepository.findAll();
         BaseResp.setCode(200);
         BaseResp.setMessage("查询全部成功");
         BaseResp.setData(all);
+        BaseResp.setTotal(all.getTotalElements());
         return BaseResp;
     }
 

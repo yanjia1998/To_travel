@@ -7,7 +7,7 @@ import com.qf.common.BaseResp;
  */
 public interface CityService {
 
-    BaseResp findAll();
+    BaseResp findAll(Integer page,Integer size);
 
     BaseResp findById(Integer id);
 }
