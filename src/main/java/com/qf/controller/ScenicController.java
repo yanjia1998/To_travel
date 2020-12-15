@@ -1,8 +1,6 @@
 package com.qf.controller;
 
 import com.qf.common.BaseResp;
-import com.qf.dao.ScenicRepository;
-import com.qf.pojo.Scenic;
 import com.qf.service.ScenicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
