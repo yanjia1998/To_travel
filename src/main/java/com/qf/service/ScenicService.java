@@ -7,5 +7,11 @@ import com.qf.common.BaseResp;
  */
 public interface ScenicService {
 
-    BaseResp findAll();
+//查全部景点
+    BaseResp findAll(Integer page,Integer size);
+//    景点详情
+    BaseResp findById(Integer id);
+//模糊查询
+    BaseResp findByScenicNameLike(String scenicName,Integer page,Integer limit);
+
 }
