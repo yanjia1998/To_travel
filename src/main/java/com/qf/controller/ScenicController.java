@@ -20,4 +20,9 @@ public class ScenicController {
     public BaseResp findAll(){
         return scenicService.findAll();
     }
+
+    @RequestMapping(value = "/findById",method = RequestMethod.GET)
+    public BaseResp findById(Integer id){
+        return scenicService.findById(id);
+    }
 }
