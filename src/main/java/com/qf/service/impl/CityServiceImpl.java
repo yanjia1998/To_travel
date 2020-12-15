@@ -38,5 +38,20 @@ public class CityServiceImpl implements CityService {
         return BaseResp;
     }
 
+    @Override
+    public BaseResp findById(Integer id) {
+        BaseResp baseResp = new BaseResp();
+        List<Scenic> byId = cityMapper.findById(id);
+        if(byId != null){
+            baseResp.setMessage("根据ID查询景点成功");
+            baseResp.setCode(200);
+            baseResp.setData(byId);
+        }else{
+            baseResp.setMessage("根据ID查询景点失败");
+            baseResp.setCode(2001);
+        }
+        return baseResp;
+    }
+
 
 }
