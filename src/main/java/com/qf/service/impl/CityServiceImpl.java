@@ -36,7 +36,7 @@ public class CityServiceImpl implements CityService {
     @Override
     public BaseResp findById(Integer id) {
         BaseResp BaseResp = new BaseResp();
-        Scenic byId = cityMapper.findById(id);
+        List<Scenic> byId = cityMapper.findById(id);
         if (byId!=null){
             BaseResp.setCode(200);
             BaseResp.setMessage("根据城市id查询城市所有景点成功");
