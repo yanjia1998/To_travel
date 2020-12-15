@@ -29,12 +29,11 @@ public class CityServiceImpl implements CityService {
     public BaseResp findAll(Integer page,Integer size) {
         PageRequest pageRequest = new PageRequest(page - 1, size);
         Page<City> all = cityRepository.findAll(pageRequest);
-
         BaseResp BaseResp = new BaseResp();
        // List<City> all = cityRepository.findAll();
         BaseResp.setCode(200);
         BaseResp.setMessage("查询全部成功");
-        BaseResp.setData(all);
+        BaseResp.setData(all.getContent());
         BaseResp.setTotal(all.getTotalElements());
         return BaseResp;
     }
