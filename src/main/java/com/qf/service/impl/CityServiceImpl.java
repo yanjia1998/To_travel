@@ -30,13 +30,13 @@ public class CityServiceImpl implements CityService {
         PageRequest pageRequest = new PageRequest(page - 1, size);
         Page<City> all = cityRepository.findAll(pageRequest);
 
-        BaseResp BaseResp = new BaseResp();
+        BaseResp baseResp = new BaseResp();
        // List<City> all = cityRepository.findAll();
-        BaseResp.setCode(200);
-        BaseResp.setMessage("查询全部成功");
-        BaseResp.setData(all);
-        BaseResp.setTotal(all.getTotalElements());
-        return BaseResp;
+        baseResp.setCode(200);
+        baseResp.setMessage("查询全部成功");
+        baseResp.setData(all);
+        baseResp.setTotal(all.getTotalElements());
+        return baseResp;
     }
 
     @Override

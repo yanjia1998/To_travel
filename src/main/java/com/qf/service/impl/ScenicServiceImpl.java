@@ -5,6 +5,8 @@ import com.qf.dao.ScenicRepository;
 import com.qf.pojo.Scenic;
 import com.qf.service.ScenicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,13 +22,15 @@ public class ScenicServiceImpl implements ScenicService {
     ScenicRepository scenicRepository;
 
     @Override
-    public BaseResp findAll() {
-        BaseResp BaseResp = new BaseResp();
-        List<Scenic> all = scenicRepository.findAll();
-        BaseResp.setData(all);
-        BaseResp.setMessage("查询全部成功");
-        BaseResp.setCode(200);
-        return BaseResp;
+    public BaseResp findAll(Integer page,Integer size) {
+        BaseResp baseResp = new BaseResp();
+        PageRequest pageRequest = new PageRequest(page - 1, size);
+        Page<Scenic> all = scenicRepository.findAll(pageRequest);
+        baseResp.setData(all);
+        baseResp.setMessage("查询全部成功");
+        baseResp.setCode(200);
+        baseResp.setTotal(all.getTotalElements());
+        return baseResp;
     }
 
     @Override
@@ -41,6 +45,23 @@ public class ScenicServiceImpl implements ScenicService {
         }
         baseResp.setCode(201);
         baseResp.setMessage("查询失败");
+        return baseResp;
+    }
+
+    @Override
+    public BaseResp findByScenicNameLike(String scenicName) {
+        BaseResp baseResp = new BaseResp();
+//        PageRequest pageRequest = new PageRequest(page - 1, size);
+        List<Scenic> byScenicNameLike = scenicRepository.findByScenicNameLike(scenicName);
+        if (byScenicNameLike!=null){
+            baseResp.setData(byScenicNameLike);
+            baseResp.setCode(200);
+            baseResp.setMessage("模糊查询景点成功");
+//            baseResp.setTotal(byScenicNameLike);
+            return baseResp;
+        }
+        baseResp.setMessage("查询失败");
+        baseResp.setData(201);
         return baseResp;
     }
 }
