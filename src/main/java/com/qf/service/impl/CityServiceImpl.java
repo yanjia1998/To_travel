@@ -1,8 +1,8 @@
 package com.qf.service.impl;
 
-import com.qf.common.BaseResponse;
-import com.qf.dao.CityBaseResponse;
+import com.qf.common.BaseResp;
 import com.qf.dao.CityMapper;
+import com.qf.dao.CityRepository;
 import com.qf.pojo.City;
 import com.qf.pojo.Scenic;
 import com.qf.service.CityService;
@@ -18,33 +18,33 @@ import java.util.List;
 public class CityServiceImpl implements CityService {
 
     @Autowired
-    CityBaseResponse cityBaseResponse;
+    CityRepository cityRepository;
 
     @Autowired
     CityMapper cityMapper;
 
     @Override
-    public BaseResponse findAll() {
-        BaseResponse baseResponse = new BaseResponse();
-        List<City> all = cityBaseResponse.findAll();
-        baseResponse.setCode(200);
-        baseResponse.setMessage("查询全部成功");
-        baseResponse.setData(all);
-        return baseResponse;
+    public BaseResp findAll() {
+        BaseResp BaseResp = new BaseResp();
+        List<City> all = cityRepository.findAll();
+        BaseResp.setCode(200);
+        BaseResp.setMessage("查询全部成功");
+        BaseResp.setData(all);
+        return BaseResp;
     }
 
     @Override
-    public BaseResponse findById(Integer id) {
-        BaseResponse baseResponse = new BaseResponse();
+    public BaseResp findById(Integer id) {
+        BaseResp BaseResp = new BaseResp();
         Scenic byId = cityMapper.findById(id);
         if (byId!=null){
-            baseResponse.setCode(200);
-            baseResponse.setMessage("根据城市id查询城市所有景点成功");
-            baseResponse.setData(byId);
-            return baseResponse;
+            BaseResp.setCode(200);
+            BaseResp.setMessage("根据城市id查询城市所有景点成功");
+            BaseResp.setData(byId);
+            return BaseResp;
         }
-            baseResponse.setCode(201);
-            baseResponse.setMessage("查询失败");
-            return baseResponse;
+            BaseResp.setCode(201);
+            BaseResp.setMessage("查询失败");
+            return BaseResp;
     }
 }

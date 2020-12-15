@@ -34,8 +34,8 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //标题
-                .title("java2007 第一次swagger2使用")
-                //描述
+                .title(" xxxxx第一次swagger2使用")
+                //描述xxx
                 .description("swagger2第一次使用")
                 //版本号
                 .version("1.0")

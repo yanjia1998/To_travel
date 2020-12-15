@@ -1,7 +1,7 @@
 package com.qf.service.impl;
 
-import com.qf.common.BaseResponse;
-import com.qf.dao.ScenicBaseResponse;
+import com.qf.common.BaseResp;
+import com.qf.dao.ScenicRepository;
 import com.qf.pojo.Scenic;
 import com.qf.service.ScenicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +16,15 @@ import java.util.List;
 public class ScenicServiceImpl implements ScenicService {
 
     @Autowired
-    ScenicBaseResponse scenicBaseResponse;
+    ScenicRepository scenicRepository;
 
     @Override
-    public BaseResponse findAll() {
-        BaseResponse baseResponse = new BaseResponse();
-        List<Scenic> all = scenicBaseResponse.findAll();
-        baseResponse.setData(all);
-        baseResponse.setMessage("查询全部成功");
-        baseResponse.setCode(200);
-        return baseResponse;
+    public BaseResp findAll() {
+        BaseResp BaseResp = new BaseResp();
+        List<Scenic> all = scenicRepository.findAll();
+        BaseResp.setData(all);
+        BaseResp.setMessage("查询全部成功");
+        BaseResp.setCode(200);
+        return BaseResp;
     }
 }

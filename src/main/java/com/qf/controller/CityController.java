@@ -1,6 +1,6 @@
 package com.qf.controller;
 
-import com.qf.common.BaseResponse;
+import com.qf.common.BaseResp;
 import com.qf.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +18,12 @@ public class CityController {
     CityService cityService;
 
     @RequestMapping(value = "/findAll",method = RequestMethod.GET)
-    public BaseResponse findAll(){
+    public BaseResp findAll(){
         return cityService.findAll();
     }
 
     @RequestMapping(value = "/findById",method = RequestMethod.GET)
-    public BaseResponse findById(Integer id){
+    public BaseResp findById(Integer id){
         return cityService.findById(id);
     }
 }
