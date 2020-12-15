@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 @Data
-public class ordersDetail {
+public class OrdersDetail {
 
     private Integer id;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
