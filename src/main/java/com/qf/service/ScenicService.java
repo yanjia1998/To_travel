@@ -14,5 +14,4 @@ public interface ScenicService {
 //模糊查询
     BaseResp findByScenicNameLike(String scenicName,Integer page,Integer limit);
 
-
 }
