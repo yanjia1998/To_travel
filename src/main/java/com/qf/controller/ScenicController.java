@@ -3,10 +3,7 @@ package com.qf.controller;
 import com.qf.common.BaseResp;
 import com.qf.service.ScenicService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,8 +28,8 @@ public class ScenicController {
     }
 
     @RequestMapping(value = "/findByScenicNameLike",method = RequestMethod.GET)
-    public BaseResp findByScenicNameLike(String scenicName){
-        return scenicService.findByScenicNameLike("%"+scenicName+"%");
+    public BaseResp findByScenicNameLike(String scenicName, @RequestParam("page")Integer page,@RequestParam("limit")Integer limit){
+        return scenicService.findByScenicNameLike("%"+scenicName+"%",page,limit);
     }
 
 }

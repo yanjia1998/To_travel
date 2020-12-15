@@ -23,8 +23,4 @@ public class CityController {
         return cityService.findAll(page,size);
     }
 
-    @RequestMapping(value = "/findById",method = RequestMethod.GET)
-    public BaseResp findById(Integer id){
-        return cityService.findById(id);
-    }
 }

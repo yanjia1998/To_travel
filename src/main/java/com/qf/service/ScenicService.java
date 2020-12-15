@@ -12,7 +12,7 @@ public interface ScenicService {
 //    景点详情
     BaseResp findById(Integer id);
 //模糊查询
-    BaseResp findByScenicNameLike(String scenicName);
+    BaseResp findByScenicNameLike(String scenicName,Integer page,Integer limit);
 
 
 }

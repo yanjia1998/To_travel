@@ -5,7 +5,7 @@
 <mapper namespace="com.qf.dao.CityMapper">
 
 <select id="findById" resultType="com.qf.pojo.Scenic">
-    SELECT s.scenic_name As scenicName FROM city c,city_scenic cs,scenic s where cs.scenic_id = s.id and c.id=#{id}
+    SELECT city.`city_name`,scenic.`scenic_name` FROM city,scenic,city_scenic WHERE city.`id`=city_scenic.`city_id` AND scenic.`id`=city_scenic.`scenic_id` AND city.`id`=#{id}
 </select>
 
 </mapper>

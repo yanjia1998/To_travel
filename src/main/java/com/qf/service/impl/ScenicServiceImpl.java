@@ -1,5 +1,7 @@
 package com.qf.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.qf.common.BaseResp;
 import com.qf.dao.ScenicRepository;
 import com.qf.pojo.Scenic;
@@ -49,15 +51,16 @@ public class ScenicServiceImpl implements ScenicService {
     }
 
     @Override
-    public BaseResp findByScenicNameLike(String scenicName) {
+    public BaseResp findByScenicNameLike(String scenicName,Integer page,Integer limit) {
         BaseResp baseResp = new BaseResp();
-//        PageRequest pageRequest = new PageRequest(page - 1, size);
+        PageHelper.startPage(page,limit);
         List<Scenic> byScenicNameLike = scenicRepository.findByScenicNameLike(scenicName);
-        if (byScenicNameLike!=null){
-            baseResp.setData(byScenicNameLike);
+        PageInfo<Scenic> scenicPageInfo = new PageInfo<>(byScenicNameLike);
+        if (scenicPageInfo!=null){
+            baseResp.setData(scenicPageInfo.getList());
             baseResp.setCode(200);
             baseResp.setMessage("模糊查询景点成功");
-//            baseResp.setTotal(byScenicNameLike);
+            baseResp.setTotal(scenicPageInfo.getTotal());
             return baseResp;
         }
         baseResp.setMessage("查询失败");
