@@ -1,9 +1,6 @@
 package com.qf.service;
 
 import com.qf.common.BaseResp;
-import com.qf.pojo.Scenic;
-
-import java.util.List;
 
 /**
  * Created by Wang on 2020/12/14 14:43
