@@ -17,9 +17,7 @@ public class CityServiceImpl implements CityService {
 
     @Autowired
     CityRepository cityRepository;
-
-    @Autowired
-    CityMapper cityMapper;
+    
 
     @Override
     public BaseResp findAll(Integer page,Integer size) {
