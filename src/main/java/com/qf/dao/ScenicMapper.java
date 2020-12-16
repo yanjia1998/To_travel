@@ -7,10 +7,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * Created by Wang on 2020/12/14 16:44
+ * Created by Wang on 2020/12/15 11:40
  */
 @Mapper
-public interface CityMapper {
+public interface ScenicMapper {
 
-    List<Scenic> findById(@Param("id")Integer id);
+    List<Scenic> byScenicName(@Param("scenicName")String scenicName);
 }
