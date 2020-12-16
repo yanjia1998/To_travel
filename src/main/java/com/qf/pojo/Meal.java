@@ -19,10 +19,16 @@ public class Meal {
     private String mealName;
     @Column(name = "meal_price")
     private Double mealPrice;
+    @Column(name = "meal_intro")
+    private String mealIntro;
     @Column(name = "meal_pic")
     private String mealPic;
     @Column(name = "meal_explain")
     private String mealExplain;
     @Column(name = "meal_booking")
     private String mealBooking;
+    @Column(name = "meal_pic1")
+    private String mealPic1;
+    @Column(name = "meal_pic2")
+    private String mealPic2;
 }

@@ -21,6 +21,6 @@ public class MealController {
     private MealService mealService;
     @RequestMapping(value = "/findById",method = RequestMethod.POST)
     public BaseResp findById(@RequestBody Map map){
-        return mealService.findById((Integer) map.get("id"));
+        return mealService.findById(Integer.valueOf(map.get("id").toString()));
     }
 }

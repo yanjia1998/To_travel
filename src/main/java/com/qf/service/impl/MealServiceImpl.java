@@ -25,6 +25,7 @@ public class MealServiceImpl implements MealService {
             Meal meal = byId.get();
             baseResp.setCode(200);
             baseResp.setData(meal);
+            return baseResp;
         }
         baseResp.setCode(2001);
         baseResp.setMessage("查询失败");
